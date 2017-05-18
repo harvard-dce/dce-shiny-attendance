@@ -1,0 +1,188 @@
+PackratFormat: 1.4
+PackratVersion: 0.4.8.1
+RVersion: 3.3.3
+Repos: CRAN=https://cran.rstudio.com/
+
+Package: BH
+Source: CRAN
+Version: 1.62.0-1
+Hash: 14dfb3e8ffe20996118306ff4de1fab2
+
+Package: DBI
+Source: CRAN
+Version: 0.6-1
+Hash: 4aef5bda70897c1663d5b8bae2f4419a
+
+Package: R6
+Source: CRAN
+Version: 2.2.1
+Hash: 530f0b839551f96ec991ce4f93156ee1
+
+Package: Rcpp
+Source: CRAN
+Version: 0.12.10
+Hash: 6cf65d0dd6a92f2d43c8d4805d33efe9
+
+Package: assertthat
+Source: CRAN
+Version: 0.2.0
+Hash: e8805df54c65ac96d50235c44a82615c
+
+Package: curl
+Source: CRAN
+Version: 2.6
+Hash: 8162b82ca4809c0d63c30aedbd7348e0
+
+Package: devtools
+Source: CRAN
+Version: 1.13.1
+Hash: 8dadb6c6a916c8312dddc7b4d394c9f3
+Requires: digest, git2r, httr, jsonlite, memoise, rstudioapi, whisker,
+    withr
+
+Package: digest
+Source: CRAN
+Version: 0.6.12
+Hash: e53fb8c58673df868183697e39a6a4d6
+
+Package: dplyr
+Source: CRAN
+Version: 0.5.0
+Hash: 673660fd0b947477dab1044abc8b2c95
+Requires: BH, DBI, R6, Rcpp, assertthat, lazyeval, magrittr, tibble
+
+Package: elastic
+Source: CRAN
+Version: 0.7.8
+Hash: 945a1566474bbaf74ab08aec5a6f98bb
+Requires: curl, httr, jsonlite
+
+Package: elasticdsl
+Source: github
+Version: 0.0.4.9200
+Hash: 01ecc89ff5b71a16ab80e5c21c49823a
+Requires: dplyr, elastic, jsonlite, lazyeval, magrittr
+GithubRepo: elasticdsl
+GithubUsername: ropensci
+GithubRef: master
+GithubSha1: 89e4ea829aabd9a269f0070876b6eddfb8914ec8
+
+Package: git2r
+Source: CRAN
+Version: 0.18.0
+Hash: 9dfaafbcca68be29b89ef7783dc1dac0
+
+Package: htmltools
+Source: CRAN
+Version: 0.3.5
+Hash: 3411e0671a44177109dc1a9e4a6bd2a4
+Requires: Rcpp, digest
+
+Package: httpuv
+Source: CRAN
+Version: 1.3.3
+Hash: 15df1efb155731a0ac9c0bfd84f13499
+Requires: Rcpp
+
+Package: httr
+Source: CRAN
+Version: 1.2.1
+Hash: 7de1f8f760441881804af7c1ff324340
+Requires: R6, curl, jsonlite, mime, openssl
+
+Package: jsonlite
+Source: CRAN
+Version: 1.4
+Hash: 24cc0ffeb1771d710173d9803a131870
+
+Package: lazyeval
+Source: CRAN
+Version: 0.2.0
+Hash: 3d6e7608e65bbf5cb170dab1e3c9ed8b
+
+Package: magrittr
+Source: CRAN
+Version: 1.5
+Hash: bdc4d48c3135e8f3b399536ddf160df4
+
+Package: memoise
+Source: CRAN
+Version: 1.1.0
+Hash: 410fcd334bc626db100237cc1370f2e9
+Requires: digest
+
+Package: mime
+Source: CRAN
+Version: 0.5
+Hash: 463550cf44fb6f0a2359368f42eebe62
+
+Package: openssl
+Source: CRAN
+Version: 0.9.6
+Hash: 5f4711e142a44655dfea4d64fcf2f641
+
+Package: packrat
+Source: CRAN
+Version: 0.4.8-1
+Hash: 6ad605ba7b4b476d84be6632393f5765
+
+Package: rlang
+Source: CRAN
+Version: 0.1
+Hash: c6c4821e54319dc19a16836f01f596cd
+
+Package: rstudioapi
+Source: CRAN
+Version: 0.6
+Hash: fd256f8bfb9a64cc35f98b0decb1a79f
+
+Package: shiny
+Source: CRAN
+Version: 1.0.0
+Hash: 315fd5ac8ada4047f81af7c19d5a5974
+Requires: R6, digest, htmltools, httpuv, jsonlite, mime, sourcetools,
+    xtable
+
+Package: shinyBS
+Source: CRAN
+Version: 0.61
+Hash: 4644935bd93e62a0b82686b26af7efc2
+Requires: htmltools, shiny
+
+Package: shinyLP
+Source: CRAN
+Version: 1.1.0
+Hash: 4f8556eba12476b5f03e757c34c9747d
+Requires: shiny, shinyBS, shinythemes
+
+Package: shinythemes
+Source: CRAN
+Version: 1.1.1
+Hash: d15f59eaa7a9a0668cea3af7f477820c
+Requires: shiny
+
+Package: sourcetools
+Source: CRAN
+Version: 0.1.5
+Hash: 04ddeb1c288302222562326a471e2945
+
+Package: tibble
+Source: CRAN
+Version: 1.3.1
+Hash: 127494c044f42b92de29c6fca10e6007
+Requires: Rcpp, assertthat, rlang
+
+Package: whisker
+Source: CRAN
+Version: 0.3-2
+Hash: 803d662762e532705c2c066a82d066e7
+
+Package: withr
+Source: CRAN
+Version: 1.0.2
+Hash: 774eb7be9087cdc24b53b74e5359cfac
+
+Package: xtable
+Source: CRAN
+Version: 1.8-2
+Hash: 7293235cfcc14cdff1ce7fd1a0212031
