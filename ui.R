@@ -5,8 +5,6 @@
 # http://shiny.rstudio.com
 #
 
-library(shiny)
-
 shinyUI(fluidPage(
 
   # Application title
@@ -15,6 +13,8 @@ shinyUI(fluidPage(
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
+      selectInput("term", "Term:", term_options, selected=default_term),
+      htmlOutput("courseSelect"),
       sliderInput("bins",
                   "Number of bins:",
                   min = 1,

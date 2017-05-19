@@ -5,11 +5,23 @@
 # http://shiny.rstudio.com
 #
 
-library(shiny)
-
 shinyServer(function(input, output, session) {
 
   cdata <- session$clientData
+  
+#  episodes <- episodes_by_term(default_term)
+  
+  observeEvent(input$term, {
+    episodes <- episodes_by_term(input$term)
+  }) #, ignoreInit = T)
+  
+  output$courseSelect <- renderUI({
+    courses <- dplyr::distinct(episodes, series, course)
+    courses <- courses[order(courses$course),]
+    courseChoices <- with(courses, split(series, course))
+    selectInput("course", "Course:", courseChoices)
+  })
+  
   
   output$reqdata <- renderText({
     ls(env=session$request)

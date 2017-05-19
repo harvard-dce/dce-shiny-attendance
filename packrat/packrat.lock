@@ -33,6 +33,11 @@ Source: CRAN
 Version: 2.6
 Hash: 8162b82ca4809c0d63c30aedbd7348e0
 
+Package: data.table
+Source: CRAN
+Version: 1.10.4
+Hash: 2c7c47ccb40d01c7b214c8eff818108d
+
 Package: devtools
 Source: CRAN
 Version: 1.13.1
@@ -66,6 +71,12 @@ GithubRepo: elasticdsl
 GithubUsername: ropensci
 GithubRef: master
 GithubSha1: 89e4ea829aabd9a269f0070876b6eddfb8914ec8
+
+Package: elasticsearchr
+Source: CRAN
+Version: 0.2.0
+Hash: a07fe10af60017541d894c2a05cef079
+Requires: httr, jsonlite
 
 Package: git2r
 Source: CRAN
@@ -165,6 +176,17 @@ Package: sourcetools
 Source: CRAN
 Version: 0.1.5
 Hash: 04ddeb1c288302222562326a471e2945
+
+Package: stringi
+Source: CRAN
+Version: 1.1.5
+Hash: b6308e49357a0b475f433599e0d8b5eb
+
+Package: stringr
+Source: CRAN
+Version: 1.2.0
+Hash: 25a86d7f410513ebb7c0bc6a5e16bdc3
+Requires: magrittr, stringi
 
 Package: tibble
 Source: CRAN
