@@ -26,3 +26,6 @@ vignettes/*.pdf
 packrat/lib*/
 packrat/src/
 .Rproj.user
+
+# project data
+/data

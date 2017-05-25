@@ -7,7 +7,7 @@
 
 shinyServer(function(input, output, session) {
 
-  cdata <- session$clientData
+  attendance <- read.csv("./data/attendance.csv")
   episodes <- reactiveValues(episodes = list())
 
   observeEvent(input$term, {
@@ -25,6 +25,7 @@ shinyServer(function(input, output, session) {
 
   observeEvent(input$course, {
     if (input$course != "") {
+      browser()
       output$lectureTable <- renderDataTable({
         lectures <- dplyr::filter(episodes$episodes, series == input$course)
         lectures <- dplyr::select(lectures, one_of(lecture.fields))
@@ -32,18 +33,5 @@ shinyServer(function(input, output, session) {
       })
     }
   }, ignoreNULL = T, ignoreInit = T)
-
-  output$reqdata <- renderText({
-    ls(env=session$request)
-  })
-
-  output$clientdataText <- renderText({
-    cnames <- names(cdata)
-
-    allvalues <- lapply(cnames, function(name) {
-      paste(name, cdata[[name]], sep=" = ")
-    })
-    paste(allvalues, collapse = "\n")
-  })
 
 })

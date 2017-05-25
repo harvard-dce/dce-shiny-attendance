@@ -10,7 +10,6 @@ shinyUI(fluidPage(
   # Application title
   titlePanel("Course Lecture Report"),
 
-  # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
       selectInput("term", "Term:", term.options, selected = default.term),
@@ -19,12 +18,11 @@ shinyUI(fluidPage(
       htmlOutput("courseSelect")
     ),
 
-    # Show a plot of the generated distribution
     mainPanel(
-      h3("clientData values"),
-      dataTableOutput("lectureTable"),
-      verbatimTextOutput("reqdata"),
-      verbatimTextOutput("clientdataText")
+      tabsetPanel(
+        tabPanel("Lectures", dataTableOutput("lectureTable")),
+        tabPanel("Students", verbatimTextOutput("hello!"))
+      )
     )
   )
 ))
