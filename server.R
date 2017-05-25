@@ -8,28 +8,30 @@
 shinyServer(function(input, output, session) {
 
   cdata <- session$clientData
-
-  episodes <- reactiveValues(episodes=episodes_by_term(default_term))
+  episodes <- reactiveValues(episodes = list())
 
   observeEvent(input$term, {
-    episodes$episodes <- episodes_by_term(input$term)
-  }, ignoreInit = T)
-
-  observe({
-    output$courseSelect <- renderUI({
-      courses <- dplyr::distinct(episodes$episodes, series, course)
-      courses <- courses[order(courses$course),]
-      courseChoices <- with(courses, split(series, course))
-      selectInput("course", "Course:", courseChoices)
-    })
+    episodes$episodes <- episodesByTerm(input$term)
   })
 
   observe({
-    output$lectureTable <- renderDataTable({
-      lectures <- dplyr::filter(episodes$episodes, series == input$course)
-      lectures[order(lectures$title),]
+    courses <- dplyr::distinct(episodes$episodes, series, course)
+    courses <- courses[order(courses$course),]
+    choices <- c(list("Select A Course" = ""), with(courses, split(series, course)))
+    isolate({
+      updateSelectInput(session, "course", choices=choices)
     })
   })
+
+  observeEvent(input$course, {
+    if (input$course != "") {
+      output$lectureTable <- renderDataTable({
+        lectures <- dplyr::filter(episodes$episodes, series == input$course)
+        lectures <- dplyr::select(lectures, one_of(lecture.fields))
+        lectures[order(lectures$title),]
+      })
+    }
+  }, ignoreNULL = T, ignoreInit = T)
 
   output$reqdata <- renderText({
     ls(env=session$request)

@@ -13,7 +13,9 @@ shinyUI(fluidPage(
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
-      selectInput("term", "Term:", term_options, selected=default_term),
+      selectInput("term", "Term:", term.options, selected = default.term),
+      selectInput("course", "Course:", list()),
+      htmlOutput("termSelect"),
       htmlOutput("courseSelect")
     ),
 

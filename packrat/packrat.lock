@@ -13,6 +13,11 @@ Source: CRAN
 Version: 0.6-1
 Hash: 4aef5bda70897c1663d5b8bae2f4419a
 
+Package: DT
+Source: CRAN
+Version: 0.2
+Requires: magrittr, htmltools, htmlwidgets
+
 Package: R6
 Source: CRAN
 Version: 2.2.1
@@ -88,6 +93,12 @@ Source: CRAN
 Version: 0.3.5
 Hash: 3411e0671a44177109dc1a9e4a6bd2a4
 Requires: Rcpp, digest
+
+Package: htmlwidgets
+Source: CRAN
+Version: 0.8
+Hash: e7a3c80acddc2412f96d616949e40bb8
+Requires: jsonlite, yaml, htmltools
 
 Package: httpuv
 Source: CRAN
@@ -177,6 +188,12 @@ Source: CRAN
 Version: 0.1.5
 Hash: 04ddeb1c288302222562326a471e2945
 
+Package: sparkline
+Source: CRAN
+Version: 2.0
+Hash: 180ff3414d20b647d826a5af8466f483
+Requires: htmltools, htmlwidgets
+
 Package: stringi
 Source: CRAN
 Version: 1.1.5
@@ -208,3 +225,8 @@ Package: xtable
 Source: CRAN
 Version: 1.8-2
 Hash: 7293235cfcc14cdff1ce7fd1a0212031
+
+Package: yaml
+Source: CRAN
+Version: 2.1.14
+Hash: c81230c3a7d9ba20607ad6b4331173d1

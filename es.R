@@ -1,24 +1,24 @@
 
-make_query <- function(q) {
+makeQuery <- function(q) {
   elasticsearchr::query(q)
 }
 
-for_everything <- make_query('{ "match_all": {} }')
+for.everything <- makeQuery('{ "match_all": {} }')
 
-episodes_by_term <- function(year_term) {
-  year_term <- str_split(year_term, "-")
-  year <- year_term[[1]][1]
-  term <- year_term[[1]][2]
-  by_term <- make_query(
+episodesByTerm <- function(year.term) {
+  year.term <- str_split(year.term, "-")
+  year <- year.term[[1]][1]
+  term <- year.term[[1]][2]
+  by.term <- makeQuery(
     str_interp('{
       "bool": {
         "must": [
              { "term": { "year": "${year}" }},
-             { "term": { "term": "${term}" }}        
+             { "term": { "term": "${term}" }}
         ]
-      }    
+      }
     }')
   )
-  elastic(es_host, "episodes") %search% by_term
+  elastic(es.host, "episodes") %search% by.term
 }
 
