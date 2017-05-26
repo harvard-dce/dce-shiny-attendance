@@ -19,6 +19,6 @@ episodesByTerm <- function(year.term) {
       }
     }')
   )
-  elastic(es.host, "episodes") %search% by.term
+  elastic(es.host, es.episode.index) %search% by.term
 }
 

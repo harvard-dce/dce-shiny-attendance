@@ -21,7 +21,7 @@ shinyUI(fluidPage(
     mainPanel(
       tabsetPanel(
         tabPanel("Lectures", dataTableOutput("lectureTable")),
-        tabPanel("Students", verbatimTextOutput("hello!"))
+        tabPanel("Students", dataTableOutput("studentTable"))
       )
     )
   )
