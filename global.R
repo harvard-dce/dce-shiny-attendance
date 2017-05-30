@@ -14,4 +14,3 @@ tryCatch({
   print("Unable to communicate with Elasticsearch");
   stopApp(1)
 })
-
