@@ -83,6 +83,15 @@ Source: CRAN
 Version: 0.6.12
 Hash: e53fb8c58673df868183697e39a6a4d6
 
+Package: dotenv
+Source: github
+Version: 1.0.2
+Hash: 2ea4d351363946a734be8544a7d5043a
+GithubRepo: dotenv
+GithubUsername: gaborcsardi
+GithubRef: master
+GithubSha1: a76fec650edacd0d6f17544ec289a5b3bcbeffec
+
 Package: dplyr
 Source: CRAN
 Version: 0.5.0
