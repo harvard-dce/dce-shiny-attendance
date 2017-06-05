@@ -11,10 +11,19 @@ shinyServer(function(input, output, session) {
   rollcall <- read.csv("./data/rollcall.csv", stringsAsFactors = F)
   episodes <- reactiveValues(episodes = list())
 
+  studentList <- function(series.id) {
+    filter(rollcall, series == series.id & reg_level != "S")
+  }
+
   lectureAttendance <- function(series.id, mp.id) {
-    students <- filter(rollcall, series == series.id & reg_level != "S")
+    students <- studentList(series.id)
     attended <- filter(attendance, mpid == mp.id & huid %in% students$huid)
     paste(nrow(attended), "of", nrow(students))
+  }
+
+  lectureScores <- function(series.id, mp.id) {
+    students <- studentList(series.id)
+    select()
   }
 
   studentAttendance <- function(lectures, student.id) {
@@ -49,6 +58,11 @@ shinyServer(function(input, output, session) {
                              available = with_tz(ymd_hms(available, tz = default.tz)),
                              duration = paste(as.integer((duration / 1000) / 60), "m", sep = "")
                              )
+
+      sparkline.data <-
+      sparkline.style <- "type: 'line'"
+      sparkline.coldefs <- list(list(targets = 1, render = JS("function(data, type, full){ return '<span class=sparkSamples>' + data + '</span>' }")))
+      sparkline.callback <- JS(paste0("function (oSettings, json) {\n  $('.sparkSamples:not(:has(canvas))').sparkline('html', { ", sparkline.style, " });\n}"), collapse = "")
 
       output$lectureTable <- renderDataTable({
         # generate the attendance column
