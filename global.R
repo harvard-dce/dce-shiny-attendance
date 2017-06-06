@@ -4,6 +4,7 @@ library(elasticsearchr)
 library(dplyr)
 library(shiny)
 library(stringr)
+library(lubridate)
 
 source("config.R")
 source("es.R")

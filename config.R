@@ -20,3 +20,5 @@ term.options <- c(
 
 lecture.fields <- c("title", "available", "duration", "attendance")
 student.fields <- c("name", "huid", "status", "reg_level", "attendance")
+
+random.names <- c('Hodgson, Hilary', 'Waters, Dean', 'Fox, Terry', 'Wright, Craig', 'Skinner, Trevor', 'Stephenson, Joel', 'Thomas, Leah', 'Clements, Diane', 'Coleman, Valerie', 'Little, Hollie', 'Thorpe, Annette', 'Patel, Conor', 'Jackson, Christopher', 'Williams, Terence', 'Mistry, Olivia', 'Allen, Danny', 'Gray, Joanne', 'Evans, Nicola', 'Hardy, Michelle', 'Simmons, David')

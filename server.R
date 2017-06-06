@@ -59,11 +59,11 @@ shinyServer(function(input, output, session) {
                              duration = paste(as.integer((duration / 1000) / 60), "m", sep = "")
                              )
 
-      sparkline.data <-
-      sparkline.style <- "type: 'line'"
-      sparkline.coldefs <- list(list(targets = 1, render = JS("function(data, type, full){ return '<span class=sparkSamples>' + data + '</span>' }")))
-      sparkline.callback <- JS(paste0("function (oSettings, json) {\n  $('.sparkSamples:not(:has(canvas))').sparkline('html', { ", sparkline.style, " });\n}"), collapse = "")
-
+#      sparkline.data <-
+#      sparkline.style <- "type: 'line'"
+#      sparkline.coldefs <- list(list(targets = 1, render = JS("function(data, type, full){ return '<span class=sparkSamples>' + data + '</span>' }")))
+#      sparkline.callback <- JS(paste0("function (oSettings, json) {\n  $('.sparkSamples:not(:has(canvas))').sparkline('html', { ", sparkline.style, " });\n}"), collapse = "")
+#
       output$lectureTable <- renderDataTable({
         # generate the attendance column
         lectureTable <- lectures %>% rowwise() %>% mutate(attendance = lectureAttendance(input$course, mpid))
@@ -82,10 +82,19 @@ shinyServer(function(input, output, session) {
         studentTable <- students %>% rowwise() %>% mutate(attendance = studentAttendance(lectures, huid))
         # create column contining full name
         studentTable <- dplyr::mutate(studentTable, name = paste(first_name, mi, last_name))
+
+        browser()
+        # insert random stuff for demo
+        studentTable <- studentTable[1:20,]
+        studentTable$name <- random.names
+        studentTable$huid <- sample(10000000:99999999, 20, replace=FALSE)
+        studentTable <- studentTable[order(studentTable$name),]
+
         # order by last name
-        studentTable <- studentTable[order(studentTable$last_name),]
+        #studentTable <- studentTable[order(studentTable$last_name),]
         # prune to the columns we want
         studentTable <- select(studentTable, one_of(student.fields))
+
       })
     }
   }, ignoreNULL = T, ignoreInit = T)
