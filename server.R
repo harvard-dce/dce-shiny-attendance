@@ -11,6 +11,11 @@ shinyServer(function(input, output, session) {
   rollcall <- read.csv("./data/rollcall.csv", stringsAsFactors = F)
   episodes <- reactiveValues(episodes = list())
 
+  makeSparkline <- function() {
+    df <- data.frame(x = floor(runif(14, min=0, max=100)))
+    sparkline(df$x, type="bar")
+  }
+
   studentList <- function(series.id) {
     filter(rollcall, series == series.id & reg_level != "S")
   }
@@ -73,7 +78,7 @@ shinyServer(function(input, output, session) {
         lectureTable <- lectureTable[lecture.fields]
         # order by title
         lectureTable <- lectureTable[order(lectureTable$available),]
-      })
+      }, rownames = F)
 
       # get the student list for this course
       students <- dplyr::filter(rollcall, series == input$course & reg_level != "S")
@@ -83,7 +88,6 @@ shinyServer(function(input, output, session) {
         # create column contining full name
         studentTable <- dplyr::mutate(studentTable, name = paste(first_name, mi, last_name))
 
-        browser()
         # insert random stuff for demo
         studentTable <- studentTable[1:20,]
         studentTable$name <- random.names
@@ -95,7 +99,7 @@ shinyServer(function(input, output, session) {
         # prune to the columns we want
         studentTable <- select(studentTable, one_of(student.fields))
 
-      })
+      }, rownames = F)
     }
   }, ignoreNULL = T, ignoreInit = T)
 

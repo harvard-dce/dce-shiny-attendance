@@ -10,18 +10,24 @@ shinyUI(fluidPage(
   verticalLayout(
     # Application title
     titlePanel("Lecture Attendance Reports"),
-    column(4,
-      wellPanel(
-        selectInput("term", "Term:", term.options, selected = default.term),
-        selectInput("course", "Course:", list()),
-        htmlOutput("termSelect"),
-        htmlOutput("courseSelect")
+    fluidRow(
+      column(6,
+          selectInput("term", "Term:", term.options, selected = default.term)
+      ),
+      column(6,
+          selectInput("course", "Course:", list())
       )
     ),
     column(12,
       tabsetPanel(
-        tabPanel("Lectures", dataTableOutput("lectureTable")),
-        tabPanel("Students", dataTableOutput("studentTable"))
+        tabPanel("Lectures",
+                 tags$head(tags$style( HTML(' .tab-content {margin-top: 20px;}'))),
+                 dataTableOutput("lectureTable")
+                 ),
+        tabPanel("Students",
+                 tags$head(tags$style( HTML(' .tab-content {margin-top: 20px;}'))),
+                 dataTableOutput("studentTable")
+                 )
       )
     )
   )
